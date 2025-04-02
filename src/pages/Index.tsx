@@ -1,18 +1,36 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
+import { toast } from "sonner";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Searching for:", searchQuery);
-    // Search functionality will be implemented later
+    
+    // Check if search query is related to AI engineering
+    const aiRelatedTerms = ["ai", "artificial intelligence", "machine learning", "ml", "deep learning", "nlp"];
+    
+    if (searchQuery.trim().length === 0) {
+      toast.error("Please enter a search term");
+      return;
+    }
+    
+    const searchLower = searchQuery.toLowerCase();
+    const isAIRelated = aiRelatedTerms.some(term => searchLower.includes(term));
+    
+    if (isAIRelated) {
+      toast.success(`Found AI talent matching "${searchQuery}"`);
+      navigate("/ai-engineer");
+    } else {
+      toast.info("No matching talent found for this search term. Try searching for 'AI' or 'Machine Learning'");
+    }
   };
 
   return (
