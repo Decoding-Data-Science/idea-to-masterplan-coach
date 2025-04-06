@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -6,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -36,8 +36,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <Header />
+      
       {/* Hero Section */}
-      <section className="pt-16 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
             Connect Talent With Opportunity

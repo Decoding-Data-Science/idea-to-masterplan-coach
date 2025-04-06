@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Briefcase, FileText, User } from "lucide-react";
+import Header from "@/components/Header";
 
 const AIEngineerProfile = () => {
   // AI Engineer profile data
@@ -76,7 +77,8 @@ const AIEngineerProfile = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <div className="max-w-5xl mx-auto">
+      <Header />
+      <div className="max-w-5xl mx-auto pt-16">
         {/* Profile Header */}
         <Card className="mb-8 overflow-hidden">
           <div className="h-32 bg-gradient-to-r from-teal-400 to-emerald-500"></div>
