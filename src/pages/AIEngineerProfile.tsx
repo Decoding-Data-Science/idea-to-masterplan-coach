@@ -79,7 +79,7 @@ const AIEngineerProfile = () => {
       <div className="max-w-5xl mx-auto">
         {/* Profile Header */}
         <Card className="mb-8 overflow-hidden">
-          <div className="h-32 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
+          <div className="h-32 bg-gradient-to-r from-teal-400 to-emerald-500"></div>
           <CardContent className="relative pt-0">
             <div className="flex flex-col md:flex-row gap-6 -mt-16">
               <Avatar className="h-32 w-32 border-4 border-white bg-white shadow-md">
@@ -93,7 +93,7 @@ const AIEngineerProfile = () => {
                     <p className="text-gray-600">{profile.title}</p>
                     <p className="text-gray-500 text-sm">{profile.location}</p>
                   </div>
-                  <Button>Contact</Button>
+                  <Button variant="outline" className="bg-white hover:bg-gray-100">Contact</Button>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@ const AIEngineerProfile = () => {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {profile.skills.map((skill, index) => (
-                    <Badge key={index} variant="secondary">{skill}</Badge>
+                    <Badge key={index} variant="outline" className="bg-gray-100 text-gray-700">{skill}</Badge>
                   ))}
                 </div>
               </CardContent>
@@ -148,12 +148,12 @@ const AIEngineerProfile = () => {
           {/* Right Column (wider) */}
           <div className="md:col-span-2">
             <Tabs defaultValue="experience" className="w-full">
-              <TabsList className="w-full grid grid-cols-2 mb-6">
-                <TabsTrigger value="experience" className="flex items-center gap-2">
+              <TabsList className="w-full grid grid-cols-2 mb-6 bg-gray-100">
+                <TabsTrigger value="experience" className="flex items-center gap-2 data-[state=active]:bg-white">
                   <Briefcase className="h-4 w-4" />
                   Experience
                 </TabsTrigger>
-                <TabsTrigger value="projects" className="flex items-center gap-2">
+                <TabsTrigger value="projects" className="flex items-center gap-2 data-[state=active]:bg-white">
                   <FileText className="h-4 w-4" />
                   Projects
                 </TabsTrigger>
@@ -182,7 +182,7 @@ const AIEngineerProfile = () => {
                       <p className="text-gray-600 mb-4">{project.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, index) => (
-                          <Badge key={index} variant="outline">{tech}</Badge>
+                          <Badge key={index} variant="outline" className="bg-gray-50">{tech}</Badge>
                         ))}
                       </div>
                     </CardContent>
