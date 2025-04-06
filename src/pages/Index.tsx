@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -85,7 +86,11 @@ const Index = () => {
                   Get discovered by top companies and recruiters
                 </li>
               </ul>
-              <Button className="w-full" variant="outline">
+              <Button 
+                className="w-full" 
+                variant="outline" 
+                onClick={() => navigate("/create-profile")}
+              >
                 Create Your Profile
               </Button>
             </CardContent>
@@ -112,7 +117,10 @@ const Index = () => {
                   Contact promising candidates directly
                 </li>
               </ul>
-              <Button className="w-full">
+              <Button 
+                className="w-full"
+                onClick={() => navigate("/recruiting")}
+              >
                 Start Recruiting
               </Button>
             </CardContent>

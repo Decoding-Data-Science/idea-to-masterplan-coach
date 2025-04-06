@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ProfilePage from "./pages/ProfilePage";
 import AIEngineerProfile from "./pages/AIEngineerProfile";
+import CreateProfile from "./pages/CreateProfile";
+import Recruiting from "./pages/Recruiting";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +23,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/ai-engineer" element={<AIEngineerProfile />} />
+          <Route path="/create-profile" element={<CreateProfile />} />
+          <Route path="/recruiting" element={<Recruiting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

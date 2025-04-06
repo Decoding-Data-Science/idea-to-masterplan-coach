@@ -5,9 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { FileText, Briefcase, User } from "lucide-react";
+import { FileText, Briefcase, User, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+  
   // Mock data - will be replaced with real data later
   const [profile] = useState({
     name: "Alex Johnson",
@@ -59,17 +62,27 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
       <div className="max-w-5xl mx-auto">
+        {/* Back button */}
+        <Button 
+          variant="ghost" 
+          className="mb-6 flex items-center gap-2" 
+          onClick={() => navigate("/")}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Button>
+        
         {/* Profile Header */}
         <Card className="mb-8 overflow-hidden">
           <div className="h-32 bg-gradient-to-r from-purple-600 to-blue-600"></div>
-          <CardContent className="relative pt-0">
-            <div className="flex flex-col md:flex-row gap-6 -mt-16">
-              <Avatar className="h-32 w-32 border-4 border-white bg-white shadow-md">
+          <CardContent className="relative pt-6 px-6">
+            <div className="flex flex-col md:flex-row gap-6 md:items-end">
+              <Avatar className="h-32 w-32 border-4 border-white bg-white shadow-md -mt-16">
                 <AvatarImage src={profile.avatar} alt={profile.name} />
                 <AvatarFallback>{profile.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
               </Avatar>
-              <div className="pt-16 md:pt-4 flex-grow">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+              <div className="flex-grow">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-2">
                   <div>
                     <h1 className="text-2xl font-bold">{profile.name}</h1>
                     <p className="text-gray-600">{profile.title}</p>
